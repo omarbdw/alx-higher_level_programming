@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+def square_matrix_simple(matrix=[]):
+    matrixSquared = matrix
+    for row in matrixSquared:
+        for i in row:
+            matrixSquared[i] = i ** 2
+    return (matrixSquared)
