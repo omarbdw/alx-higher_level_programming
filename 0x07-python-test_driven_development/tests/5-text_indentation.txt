@@ -1,0 +1,23 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation('')
+>>> text_indentation('ok:my dear.')
+ok:
+<BLANKLINE>
+my dear.
+<BLANKLINE>
+>>> text_indentation('::')
+:
+<BLANKLINE>
+:
+<BLANKLINE>
+>>> text_indentation('hello : ok . as if? ')
+hello :
+<BLANKLINE>
+ok .
+<BLANKLINE>
+as if?
+<BLANKLINE>
+>>> text_indentation(100)
+Traceback (most recent call last):
+...
+TypeError: text must be a string

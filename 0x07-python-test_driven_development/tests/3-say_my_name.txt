@@ -1,0 +1,19 @@
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> say_my_name(dfsd,fsdfs)
+Traceback (most recent call last):
+...
+NameError: name 'dfsd' is not defined
+>>> say_my_name("dfsd","fsdfs")
+My name is dfsd fsdfs
+>>> say_my_name("","")
+My name is  
+>>> say_my_name(55,66)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+>>> say_my_name("55",66)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+>>> say_my_name("55","66")
+My name is 55 66
