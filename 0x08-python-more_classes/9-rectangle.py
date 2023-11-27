@@ -72,15 +72,6 @@ class Rectangle:
                 rectangle_str += "\n"
         return rectangle_str
 
-    def __repr__(self):
-        """This function returns a string representation of the rectangle."""
-        return f"Rectangle({self.__width}, {self.__height})"
-
-    def __del__(self):
-        """This function deletes an instance of Rectangle."""
-        print("Bye rectangle...")
-        self.number_of_instances -= 1
-
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """This function returns the biggest rectangle based on the area.
@@ -101,3 +92,12 @@ class Rectangle:
     def square(cls, size=0):
         """This function returns a new Rectangle instance."""
         return (cls(size, size))
+
+    def __repr__(self):
+        """This function returns a string representation of the rectangle."""
+        return f"Rectangle({self.__width}, {self.__height})"
+
+    def __del__(self):
+        """This function deletes an instance of Rectangle."""
+        print("Bye rectangle...")
+        self.number_of_instances -= 1
