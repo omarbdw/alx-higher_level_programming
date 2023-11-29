@@ -17,7 +17,7 @@ def matrix_divided(matrix, div):
     """
     newMatrix = []
     if not isinstance(div, (int, float)):
-        raise ZeroDivisionError("division by zero")
+        raise ZeroDivisionError("div must be a number")
     for row in matrix:
         if len(row) != len(matrix[0]):
             raise TypeError("Each row of the matrix must have the same size")
@@ -25,7 +25,7 @@ def matrix_divided(matrix, div):
         for element in row:
             if not isinstance(element, (int, float)):
                 raise TypeError("matrix must be a matrix (list \
-                    of lists) of integers/floats")
+of lists) of integers/floats")
             element = round((element / div), 2)
             newRow.append(element)
         newMatrix.append(newRow)
