@@ -13,7 +13,7 @@ def matrix_divided(matrix, div):
     Raises:
         ZeroDivisionError: If the divisor is zero.
         TypeError: If the matrix is not a valid matrix \
-            or contains non-numeric elements.
+or contains non-numeric elements.
     """
     newMatrix = []
     if not isinstance(div, (int, float)):
