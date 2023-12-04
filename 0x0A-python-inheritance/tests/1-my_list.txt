@@ -1,0 +1,30 @@
+>>> myList = __import__('1-my_list').MyList
+>>> m1 = myList([5,6,24])
+>>> m1.print_sorted()
+[5, 6, 24]
+>>> m1 = myList([5,6,2,0])
+>>> m1.print_sorted()
+[0, 2, 5, 6]
+>>> m1 = myList([0,0,0,0])
+>>> m1.print_sorted()
+[0, 0, 0, 0]
+>>> m1 = myList([0])
+>>> m1.print_sorted()
+[0]
+>>> m1 = myList([])
+>>> m1.print_sorted()
+[]
+>>> m1 = myList([-2,0,9,-1000])
+>>> m1.print_sorted()
+[-1000, -2, 0, 9]
+>>> m1 = myList()
+>>> m1.print_sorted()
+[]
+>>> m1 = myList(['a','b','f','d'])
+>>> m1.print_sorted()
+['a', 'b', 'd', 'f']
+>>> m1 = myList([a, m. g])
+>>> m1.print_sorted()
+Traceback (most recent call last):
+...
+NameError: name 'a' is not defined
