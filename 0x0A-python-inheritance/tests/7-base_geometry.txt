@@ -1,0 +1,55 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> baseGeo = BaseGeometry()
+>>> type(baseGeo)
+<class '7-base_geometry.BaseGeometry'>
+
+>>> baseGeo.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
+
+>>> baseGeo.integer_validator("invalid", "number")
+Traceback (most recent call last):
+TypeError: invalid must be an integer
+
+>>> baseGeo.integer_validator("another invalid", True)
+Traceback (most recent call last):
+TypeError: another invalid must be an integer
+
+>>> baseGeo.integer_validator("invalid tuple", (1,))
+Traceback (most recent call last):
+TypeError: invalid tuple must be an integer
+
+>>> baseGeo.integer_validator("and another", [3])
+Traceback (most recent call last):
+TypeError: and another must be an integer
+
+>>> baseGeo.integer_validator("more invalid testing", {3, 4})
+Traceback (most recent call last):
+TypeError: more invalid testing must be an integer
+
+>>> baseGeo.integer_validator("absolutely every possible invalid", None)
+Traceback (most recent call last):
+TypeError: absolutely every possible invalid must be an integer
+
+>>> baseGeo.integer_validator("invalid int", -1)
+Traceback (most recent call last):
+ValueError: invalid int must be greater than 0
+
+>>> baseGeo.integer_validator("invalid int", 0)
+Traceback (most recent call last):
+ValueError: invalid int must be greater than 0
+
+>>> baseGeo.integer_validator() # doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+TypeError: integer_validator() missing 2 required positional arguments: 
+'name' and 'value'
+
+>>> baseGeo.integer_validator(None) # doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+TypeError: integer_validator() missing 1 required positional argument: 
+'value'
+
+>>> baseGeo.integer_validator({"a": 1}, (1, 2))
+Traceback (most recent call last):
+TypeError: {'a': 1} must be an integer
