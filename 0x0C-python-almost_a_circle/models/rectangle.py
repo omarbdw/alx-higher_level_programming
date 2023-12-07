@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Rectangle module"""
+import json
 from models.base import Base
 
 
@@ -118,3 +119,9 @@ class Rectangle(Base):
         """Dictionary representation of Rectangle"""
         return {"id": self.id, "width": self.width, "height": self.height,
                 "x": self.x, "y": self.y}
+
+    def from_json_string(json_string):
+        """Returns the list of the JSON string representation json_string"""
+        if json_string is None or len(json_string) == 0:
+            return []
+        return json.loads(json_string)
