@@ -117,8 +117,8 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """Dictionary representation of Rectangle"""
-        return {"id": self.id, "width": self.width, "height": self.height,
-                "x": self.x, "y": self.y}
+        return {"x": self.x, "y": self.y, "id": self.id,
+                "height": self.height, "width": self.width}
 
     def from_json_string(json_string):
         """Returns the list of the JSON string representation json_string"""
