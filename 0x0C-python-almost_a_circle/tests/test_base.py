@@ -5,6 +5,18 @@ from models.square import Square
 
 
 class TestBase(unittest.TestCase):
+    def base_setUp(self):
+        # Test of Base() for assigning automatically an ID exists
+        # and is set to 1
+        b1 = Base()
+        self.assertEqual(b1.id, 1)
+
+    def base_id(self):
+        # Test of Base() for assigning automatically an ID + 1 of the previous exists
+        # and is set to 2
+        b2 = Base()
+        self.assertEqual(b2.id, 2)
+
     def test_to_json_string(self):
         # Test when list_dictionaries is empty
         self.assertEqual(Base.to_json_string([]), "[]")

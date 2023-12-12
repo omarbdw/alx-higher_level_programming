@@ -3,6 +3,84 @@ from models.rectangle import Rectangle
 
 
 class TestRectangle(unittest.TestCase):
+    def test_constructor(self):
+        # Test of Rectangle(1, 2) exists
+        rect = Rectangle(1, 2)
+        self.assertEqual(rect.width, 1)
+        self.assertEqual(rect.height, 2)
+        self.assertEqual(rect.x, 0)
+        self.assertEqual(rect.y, 0)
+        self.assertIsNotNone(rect.id)
+
+    def testRect(self):
+        # Test of Rectangle(1, 2, 3)
+        rect = Rectangle(1, 2, 3)
+        self.assertEqual(rect.width, 1)
+        self.assertEqual(rect.height, 2)
+        self.assertEqual(rect.x, 3)
+        self.assertEqual(rect.y, 0)
+        self.assertIsNotNone(rect.id)
+
+    def testRectXY(self):
+        # Test of Rectangle(1, 2, 3, 4)
+        rect = Rectangle(1, 2, 3, 4)
+        self.assertEqual(rect.width, 1)
+        self.assertEqual(rect.height, 2)
+        self.assertEqual(rect.x, 3)
+        self.assertEqual(rect.y, 4)
+        self.assertIsNotNone(rect.id)
+
+    def widthIsNotInt(self):
+        # Test of Rectangle("1", 2)
+        # Raises TypeError
+        with self.assertRaises(TypeError):
+            Rectangle("1", 2)
+
+        # Test of Rectangle(1, "2")
+        # Raises TypeError
+    def heightIsNotInt(self):
+        with self.assertRaises(TypeError):
+            Rectangle(1, "2")
+
+        # Test of Rectangle(1, 2, "3")
+        # Raises TypeError
+    def xIsNotInt(self):
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, "3")
+
+        # Test of Rectangle(1, 2, 3, "4")
+        # Raises TypeError
+    def yIsNotInt(self):
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, 3, "4")
+
+        # Test of Rectangle(-1, 2)
+        # Raises ValueError
+    def widthIsNegative(self):
+        with self.assertRaises(ValueError):
+            Rectangle(-1, 2)
+
+        # Test of Rectangle(1, -2)
+        # Raises ValueError
+    def heightIsNegative(self):
+        with self.assertRaises(ValueError):
+            Rectangle(1, -2)
+
+        # Test of Rectangle(0, 2)
+        def widthIsZero(self):
+            with self.assertRaises(ValueError):
+                Rectangle(0, 2)
+
+        # Test of Rectangle(1, 0)
+        def heightIsZero(self):
+            with self.assertRaises(ValueError):
+                Rectangle(1, 0)
+
+        # Test of Rectangle(1, 2, -3)
+        def xIsNegative(self):
+            with self.assertRaises(ValueError):
+                Rectangle(1, 2, -3)
+
     def test_area(self):
         # Test when width = 5 and height = 10
         rect = Rectangle(5, 10)
