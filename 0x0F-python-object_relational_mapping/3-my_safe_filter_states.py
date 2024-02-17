@@ -21,7 +21,8 @@ def safe_filter_states():
             None
 
     Raises:
-            MySQLdb.Error: If there is an error connecting to the MySQL database or executing the query.
+            MySQLdb.Error: If there is an error connecting to
+            the MySQL database or executing the query.
     """
     if len(sys.argv) != 5:
         print("Usage: {} username password database_name state_name".format(
