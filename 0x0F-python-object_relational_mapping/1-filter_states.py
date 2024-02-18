@@ -12,27 +12,38 @@ def filter_states(username, password, database):
             username (str): The username for the MySQL server.
             password (str): The password for the MySQL server.
             database (str): The name of the database to connect to.
+
+    Returns:
+            None
     """
-    # Connect to MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=username, passwd=password, db=database)
+    try:
+        # Connect to MySQL server
+        db = MySQLdb.connect(host="localhost", port=3306,
+                             user=username, passwd=password, db=database)
 
-    # Create a cursor object
-    cursor = db.cursor()
+        # Create a cursor object
+        cursor = db.cursor()
 
-    # Execute the query
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+        # Execute the query
+        cursor.execute(
+            "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
 
-    # Fetch all the rows
-    rows = cursor.fetchall()
+        # Fetch all the rows
+        rows = cursor.fetchall()
 
-    # Print the results
-    for row in rows:
-        print(row)
+        # Print the results
+        for row in rows:
+            print(row)
 
-    # Close the cursor and database connection
-    cursor.close()
-    db.close()
+    except MySQLdb.Error as e:
+        print(f"Error connecting to MySQL server: {e}")
+
+    finally:
+        # Close the cursor and database connection
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 
 if __name__ == "__main__":
