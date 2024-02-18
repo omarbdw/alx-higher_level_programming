@@ -21,26 +21,30 @@ def get_cities_by_state(username, password, database):
             MySQLdb.Error: If there is an error
             executing the SQL query or connecting to the database.
     """
-    # Connect to MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=username, passwd=password, db=database)
+    try:
+        # Connect to MySQL server
+        db = MySQLdb.connect(host="localhost", port=3306,
+                             user=username, passwd=password, db=database)
 
-    # Create a cursor object
-    cursor = db.cursor()
+        # Create a cursor object
+        cursor = db.cursor()
 
-    # Execute the SQL query
-    cursor.execute(
-        "SELECT cities.id, cities.name, states.name FROM cities \
+        # Execute the SQL query
+        cursor.execute(
+                "SELECT cities.id, cities.name, states.name FROM cities\
             JOIN states ON cities.state_id = states.id ORDER BY cities.id ASC")
 
-    # Fetch all the rows
-    rows = cursor.fetchall()
+        # Fetch all the rows
+        rows = cursor.fetchall()
 
-    # Close the cursor and database connection
-    cursor.close()
-    db.close()
-
-    return rows
+        return rows
+    except MySQLdb.Error as e:
+        print("An error occurred:", e)
+        raise
+    finally:
+        # Close the cursor and database connection
+        cursor.close()
+        db.close()
 
 
 if __name__ == "__main__":
