@@ -3,23 +3,26 @@ import MySQLdb
 import sys
 
 
+import MySQLdb
+
+
 def get_cities_by_state(username, password, database):
     """
     Retrieves a list of cities along with their
     corresponding state names from a MySQL database.
 
     Args:
-            username (str): The username for the MySQL server.
-            password (str): The password for the MySQL server.
-            database (str): The name of the database to connect to.
+        username (str): The username for the MySQL server.
+        password (str): The password for the MySQL server.
+        database (str): The name of the database to connect to.
 
     Returns:
-            list: A list of tuples containing the city ID,
-            city name, and state name.
+        list: A list of tuples containing the city ID,
+        city name, and state name.
 
     Raises:
-            MySQLdb.Error: If there is an error
-            executing the SQL query or connecting to the database.
+        MySQLdb.Error: If there is an error
+        executing the SQL query or connecting to the database.
     """
     try:
         # Connect to MySQL server
@@ -31,7 +34,7 @@ def get_cities_by_state(username, password, database):
 
         # Execute the SQL query
         cursor.execute(
-                "SELECT cities.id, cities.name, states.name FROM cities\
+            "SELECT cities.id, cities.name, states.name FROM cities\
             JOIN states ON cities.state_id = states.id ORDER BY cities.id ASC")
 
         # Fetch all the rows
@@ -45,6 +48,12 @@ def get_cities_by_state(username, password, database):
         # Close the cursor and database connection
         cursor.close()
         db.close()
+
+
+"""
+This module provides a function to retrieve a list of cities
+along with their corresponding state names from a MySQL database.
+"""
 
 
 if __name__ == "__main__":
