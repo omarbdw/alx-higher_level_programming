@@ -3,9 +3,6 @@ import MySQLdb
 import sys
 
 
-import MySQLdb
-
-
 def get_cities_by_state(username, password, database):
     """
     Retrieves a list of cities along with their
@@ -48,12 +45,6 @@ def get_cities_by_state(username, password, database):
         # Close the cursor and database connection
         cursor.close()
         db.close()
-
-
-"""
-This module provides a function to retrieve a list of cities
-along with their corresponding state names from a MySQL database.
-"""
 
 
 if __name__ == "__main__":
