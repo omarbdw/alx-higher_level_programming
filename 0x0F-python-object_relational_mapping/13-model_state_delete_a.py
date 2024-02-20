@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" 13-model_state_delete_a.py - Deletes State objects with names containing 'a' from the database. """
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" 12-model_state_update_id_2.py - Update the name of a state with id 2 in the database. """
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker

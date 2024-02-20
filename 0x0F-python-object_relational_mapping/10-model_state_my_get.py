@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" 10-model_state_my_get.py - Retrieves the ID of the State object with the given name from the database hbtn_0e_6_usa. """
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker

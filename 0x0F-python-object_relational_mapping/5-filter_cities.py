@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" 5-filter_cities.py - Retrieves a list of cities in a given state from a MySQL database. """
 import MySQLdb
 import sys
 
