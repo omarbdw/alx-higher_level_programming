@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" 8-model_state_fetch_first.py - Fetches the first State object from the database. """
+""" 8-model_state_fetch_first.py - Fetches
+the first State object from the database. """
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker

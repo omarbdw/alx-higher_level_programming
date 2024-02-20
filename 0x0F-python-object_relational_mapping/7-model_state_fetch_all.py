@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" 7-model_state_fetch_all.py - Fetches all State objects from the database and displays them. """
+""" 7-model_state_fetch_all.py - Fetches all
+State objects from the database and displays them. """
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
