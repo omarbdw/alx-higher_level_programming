@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" 4-cities_by_state.py - Retrieves a list of cities along with their """
 import MySQLdb
 import sys
 
