@@ -1,3 +1,3 @@
 #!/bin/bash
-size=$(curl -s "$1" | wc -c)
-echo $size
+# Displays the size of the body of the response
+curl -s "$1" | wc -c
