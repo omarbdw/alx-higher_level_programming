@@ -1,3 +1,3 @@
 #!/bin/bash
-size=$(curl -s -I "$1" | awk '/Content-Length/ {print $2}' | tr -d '\r')
+size=$(curl -s "$1" | wc -c)
 echo $size
