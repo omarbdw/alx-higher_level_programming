@@ -1,14 +1,17 @@
+
 #!/usr/bin/python3
+""" Find a peak in a list of unsorted integers """
+
 
 def find_peak(list_of_integers):
     """
-    Find and return the peak element in a list of integers.
+    Find and return a peak element in a list of unsorted integers.
 
     Args:
         list_of_integers (list): A list of integers.
 
     Returns:
-        int: The peak element in the list.
+        int: A peak element in the list.
 
     """
     if not list_of_integers:
