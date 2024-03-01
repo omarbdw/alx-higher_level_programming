@@ -1,6 +1,17 @@
 #!/usr/bin/python3
 """ 8-model_state_fetch_first.py - Fetches
-the first State object from the database. """
+the first State object from the database.
+
+Usage:
+
+    $ ./8-model_state_fetch_first.py <mysql-username> <mysql-password> <database-name>
+
+Example:
+    
+        $ ./8-model_state_fetch_first.py root root hbtn_0e_6_usa
+        1: California
+
+"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker

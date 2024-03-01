@@ -1,5 +1,14 @@
 #!/usr/bin/python3
-""" model_state.py - State class represents a state in the database. """
+"""
+model_state.py - State class represents a state in the database.
+
+Attributes:
+        Base (declarative_base): The base class for declarative class definitions
+        in SQLAlchemy.
+        State (class): Represents a state in the database.
+        engine (Engine): The database engine.
+        
+"""
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
