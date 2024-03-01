@@ -5,11 +5,22 @@ This script takes GitHub credentials (username and password)
 and uses the GitHub API to display the user's id.
 """
 
-import requests
 import sys
+import requests
 
 
 def get_user_id(username, password):
+    """
+    Retrieves the user ID from the GitHub API
+    using the provided username and password.
+
+    Args:
+        username (str): The GitHub username.
+        password (str): The GitHub password.
+
+    Returns:
+        int: The user ID if found, None otherwise.
+    """
     # Construct the URL for the GitHub API using the provided username
     url = f"https://api.github.com/users/{username}"
 

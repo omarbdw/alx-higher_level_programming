@@ -13,6 +13,9 @@ import sys
 def main():
     """
     Main function of the script.
+    This function retrieves the value of the
+    'X-Request-Id' header from a given URL
+    and prints it to the console.
     """
     # Get the URL from command line argument
     url = sys.argv[1]

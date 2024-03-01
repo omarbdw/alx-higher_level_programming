@@ -15,6 +15,10 @@ import sys
 def main():
     """
     Main function of the script.
+    This function takes a URL as a command
+    line argument and sends a request to the URL.
+    If the request is successful, it prints the response body.
+    If an HTTP error occurs, it prints the error code.
     """
     if len(sys.argv) != 2:
         print("Usage: python3 3-error_code.py <URL>")

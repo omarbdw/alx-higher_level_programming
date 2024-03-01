@@ -9,7 +9,8 @@ import requests
 
 def main():
     """
-    Main function
+    Main function that sends a GET request to a specified
+    URL and prints the response details.
     """
     # Send a GET request to the specified URL
     response = requests.get('https://alx-intranet.hbtn.io/status')

@@ -4,13 +4,19 @@ This script sends a POST request to
 http://0.0.0.0:5000/search_user with a letter as a parameter.
 """
 
-import requests
 import sys
+import requests
 
 
 def main():
     """
     Main function of the script.
+    This function sends a POST request to
+    a specified URL with a letter as a parameter.
+    It then parses the response as JSON and
+    prints the id and name if data is not empty.
+    If the response cannot be parsed as
+    JSON, it prints "Not a valid JSON".
     """
     # Check if a command-line argument is provided
     if len(sys.argv) == 2:

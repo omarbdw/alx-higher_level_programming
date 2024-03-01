@@ -7,13 +7,18 @@ If the HTTP status code is greater than or equal to 400,
 it prints: Error code: followed by the value of the HTTP status code.
 """
 
-import requests
 import sys
+import requests
 
 
 def main():
     """
-    Main function of the script
+    Main function of the script.
+    This function sends a GET request to the
+    specified URL and checks the response status code.
+    If the status code is greater than or equal
+    to 400, it prints the error code.
+    Otherwise, it prints the response body.
     """
     # Get the URL from command line argument
     url = sys.argv[1]
