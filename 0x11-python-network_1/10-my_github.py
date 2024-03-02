@@ -1,10 +1,6 @@
 #!/usr/bin/python3
-
-"""
-This script takes GitHub credentials (username and password)
-and uses the GitHub API to display the user's id.
-"""
-
+""" This script retrieves the user ID from the GitHub
+API using the provided username and password. """
 import sys
 import requests
 
@@ -44,6 +40,7 @@ def get_user_id(username, password):
     else:
         # If there is an error accessing the GitHub API, print an error message
         print("Error accessing GitHub API.")
+        return None
 
 
 if __name__ == "__main__":
@@ -57,7 +54,7 @@ if __name__ == "__main__":
 
         if user_id:
             # If the user id is found, print it
-            print(f"User ID: {user_id}")
+            print(user_id)
     else:
         # If the username and password are not provided
         # as arguments, print an error message
