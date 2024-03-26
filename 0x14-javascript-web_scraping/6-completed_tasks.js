@@ -2,27 +2,24 @@
 
 const request = require('request');
 
-const apiUrl = process.argv[2];
-
-request(apiUrl, function (error, response, body) {
-  if (error) {
-    console.error('Error:', error);
+request(process.argv[2], function (err, _res, body) {
+  if (err) {
+    console.log(err);
   } else {
-    const tasks = JSON.parse(body);
-    const completedTasks = {};
+    const compbyusr = {};
+    body = JSON.parse(body);
 
-    tasks.forEach(function (task) {
-      if (task.completed) {
-        if (completedTasks[task.userId]) {
-          completedTasks[task.userId]++;
-        } else {
-          completedTasks[task.userId] = 1;
-        }
+    for (let i = 0; i < body.length; ++i) {
+      const userId = body[i].userId;
+      const comp = body[i].comp;
+
+      if (comp && !compbyusr[userId]) {
+        compbyusr[userId] = 0;
       }
-    });
 
-    for (const userId in completedTasks) {
-      console.log(`${userId} : ${completedTasks[userId]}`);
+      if (comp) ++compbyusr[userId];
     }
+
+    console.log(compbyusr);
   }
 });
