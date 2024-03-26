@@ -8,14 +8,10 @@ const filePath = process.argv[3];
 request(url, (error, response, body) => {
   if (error) {
     console.error('Error:', error);
-  } else if (response.statusCode !== 200) {
-    console.error('Status:', response.statusCode);
   } else {
-    fs.writeFile(filePath, body, 'utf8', (error) => {
-      if (error) {
-        console.error('Error:', error);
-      } else {
-        console.log('File saved successfully!');
+    fs.writeFile(filePath, body, 'utf-8', (err) => {
+      if (err) {
+        console.error('Error:', err);
       }
     });
   }
