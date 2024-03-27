@@ -18,9 +18,12 @@ request(apiUrl, function(error, response, body) {
         }
       }
     });
-
+    dict = {};
     for (const userId in completedTasks) {
-      console.log(`${userId}: ${completedTasks[userId]}`);
+      if (completedTasks[userId] !== 0) {
+        dict[userId] = completedTasks[userId];
+      }
     }
+    console.log(dict);
   }
 });
