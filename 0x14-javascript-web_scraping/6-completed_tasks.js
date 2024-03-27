@@ -1,25 +1,26 @@
 #!/usr/bin/node
-
 const request = require('request');
+const apiUrl = process.argv[2];
 
-request(process.argv[2], function (err, _res, body) {
-  if (err) {
-    console.log(err);
+request(apiUrl, function(error, response, body) {
+  if (error) {
+    console.error('Error:', error);
   } else {
-    const compbyusr = {};
-    body = JSON.parse(body);
+    const todos = JSON.parse(body);
+    const completedTasks = {};
 
-    for (let i = 0; i < body.length; ++i) {
-      const userId = body[i].userId;
-      const comp = body[i].comp;
-
-      if (comp && !compbyusr[userId]) {
-        compbyusr[userId] = 0;
+    todos.forEach(function(todo) {
+      if (todo.completed) {
+        if (completedTasks[todo.userId]) {
+          completedTasks[todo.userId]++;
+        } else {
+          completedTasks[todo.userId] = 1;
+        }
       }
+    });
 
-      if (comp) ++compbyusr[userId];
+    for (const userId in completedTasks) {
+      console.log(`${userId}: ${completedTasks[userId]}`);
     }
-
-    console.log(compbyusr);
   }
 });
