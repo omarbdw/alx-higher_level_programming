@@ -14,7 +14,10 @@ request(url, (error, response, body) => {
     const film = JSON.parse(body);
     const characters = film.characters;
 
-    characters.forEach((characterUrl) => {
+    const characterNames = []; // Array to store character names
+
+    // Function to request character data and store names
+    const requestCharacter = (characterUrl) => {
       request(characterUrl, (error, response, body) => {
         if (error) {
           console.error('Error:', error);
@@ -22,9 +25,18 @@ request(url, (error, response, body) => {
           console.error('Status:', response.statusCode);
         } else {
           const character = JSON.parse(body);
-          console.log(character.name);
+          characterNames.push(character.name); // Store character name
+          if (characterNames.length === characters.length) {
+            characterNames.forEach((name) => {
+              console.log(name);
+            });
+          }
         }
       });
+    };
+
+    characters.forEach((characterUrl) => {
+      requestCharacter(characterUrl);
     });
   }
 });
